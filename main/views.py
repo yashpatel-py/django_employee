@@ -9,5 +9,10 @@ def home(request):
     }
     return render(request, "main/home.html", context)
 
-def about_us(request):
-    return HttpResponse("About Page")
+def emp_detail(request, pk):
+    emp = employee_data.objects.get(pk=pk)
+
+    context = {
+        'emp': emp
+    }
+    return render(request, 'main/emp_detail.html', context)

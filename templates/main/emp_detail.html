@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}{{emp.emp_first_name}}'s profile{% endblock title %}
+
+
+{% block content %}
+<div class="container">
+
+    <div class="mt-5">
+        <a href="{% url "home" %}" class="btn btn-lg btn-warning">Home</a>
+    </div>
+    <div class="mt-3">
+        <h2>{{emp.emp_first_name}}'s profile</h2>
+
+        <p><b>First Name</b>: {{emp.emp_first_name}}</p>
+        <p><b>Last Name</b>: {{emp.emp_last_name}}</p>
+        <p><b>Role</b>: {{emp.emp_role}}</p>
+        <p><b>Employee ID</b>: {{emp.emp_id}}</p>
+        <p><b>Created at</b>: {{emp.emp_created_at}}</p>
+        <p><b>Updated at</b>: {{emp.emp_updated_at}}</p>
+    </div>
+    
+</div>
+{% endblock content %}

@@ -7,7 +7,6 @@ class employee_data(models.Model):
     emp_last_name = models.CharField(max_length=100)
     emp_role = models.IntegerField(default=0)
     emp_id = models.CharField(max_length=150)
-    emp_id = models.CharField(max_length=200)
     emp_created_at = models.DateTimeField(auto_now_add=True)
     emp_updated_at = models.DateTimeField(auto_now=True)
 
