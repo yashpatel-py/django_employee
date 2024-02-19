@@ -1,5 +1,6 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, redirect
 from .models import employee_data
+from .forms import EmployeeForm
 
 # Create your views here.
 def home(request):
@@ -16,3 +17,14 @@ def emp_detail(request, pk):
         'emp': emp
     }
     return render(request, 'main/emp_detail.html', context)
+
+def emp_create(request):
+    if request.method == "POST":
+        form = EmployeeForm(request.POST)
+        if form.is_valid():
+            form.save()
+            # return redirect('emp_detail', pk=form.instance.pk)
+            return redirect('home')
+    else:
+        form = EmployeeForm()
+    return render(request, 'main/create_employee.html', {'form': form})
