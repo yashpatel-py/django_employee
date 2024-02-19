@@ -12,6 +12,6 @@ class employee_data(models.Model):
     emp_updated_at = models.DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
-        self.emp_created_at.timezone.now()
-        self.emp_created_at.timezone.now()
+        self.emp_created_at = timezone.now()
+        self.emp_created_at = timezone.now()
         super().save(*args, **kwargs)

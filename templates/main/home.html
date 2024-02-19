@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock title %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            {% for emp in all_emp %}
+            <div class="card mt-3">
+                <div class="card-body">
+                  {{emp.emp_first_name}} {{emp.emp_last_name}} <br>
+                  <a role="button" class="btn btn-sm btn-primary" href="#">Show {{emp.emp_first_name}}'s Profile</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-md-4">
+            <ul class="list-group mt-3">
+                <li class="list-group-item active" aria-current="true">
+                    Add employee
+                </li>
+                <!--<li class="list-group-item"></li>
+                <li class="list-group-item">A third item</li>
+                <li class="list-group-item">A fourth item</li>
+                <li class="list-group-item">And a fifth one</li>-->
+              </ul>
+        </div>
+    </div>
+</div>
+{% endblock content %}
