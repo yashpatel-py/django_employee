@@ -12,6 +12,7 @@
                 <div class="card-body">
                   {{emp.emp_first_name}} {{emp.emp_last_name}} <br>
                   <a role="button" class="btn btn-sm btn-primary" href="{% url "emp_detail" emp.id %}">Show {{emp.emp_first_name}}'s Profile</a>
+                  <a role="button" class="btn btn-sm btn-success" href="{% url "emp_update" emp.id %}">Update {{emp.emp_first_name}}'s Profile</a>
                 </div>
             </div>
             {% endfor %}

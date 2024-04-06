@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import employee_data
 from .forms import EmployeeForm
 
@@ -28,3 +28,14 @@ def emp_create(request):
     else:
         form = EmployeeForm()
     return render(request, 'main/create_employee.html', {'form': form})
+
+def emp_update(request, pk):
+    employee = get_object_or_404(employee_data, pk=pk)
+    if request.method == 'POST':
+        form = EmployeeForm(request.POST, instance=employee)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = EmployeeForm(instance=employee)
+    return render(request, 'main/emp_update.html', {'form': form})

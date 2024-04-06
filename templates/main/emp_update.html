@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Update Employee{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class='mt-5'>
+        <form method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}
